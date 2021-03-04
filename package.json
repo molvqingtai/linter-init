@@ -2,10 +2,11 @@
   "name": "linter-init",
   "version": "1.0.0",
   "description": "Command line tools for generating various linter configurations",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "tsc --watch",
     "build": "tsc",
+    "debug": "ts-node src/index.ts",
     "lint": "eslint . --ext .js,.ts --cache --fix"
   },
   "bin": {
@@ -22,9 +23,16 @@
     "url": "https://github.com/molvqingtai/linter-init/issues"
   },
   "homepage": "https://github.com/molvqingtai/linter-init#readme",
+  "dependencies": {
+    "commander": "^6.2.1",
+    "inquirer": "^8.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@types/commander": "^2.12.2",
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^14.14.31",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.21.0",
@@ -38,7 +46,6 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
-    "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.2"
   },
   "husky": {

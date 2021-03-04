@@ -4,9 +4,9 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "Launch via NPM",
+      "name": "debug",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "dev"],
+      "runtimeArgs": ["run-script", "debug"],
       "port": 9229,
       "skipFiles": ["<node_internals>/**"]
     }
