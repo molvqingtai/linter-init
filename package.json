@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "ts-node src/index.ts",
     "build": "tsc",
-    "lint": "eslint . --ext .js,.ts --cache --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .js,.ts --cache --fix"
   },
   "bin": {
     "linter": "bin/index.js"
