@@ -6,7 +6,7 @@ const initialize = async (config?: string): Promise<void> => {
       type: 'select',
       name: '',
       message: 'Please pick a config',
-      choices: ['Default: Eslint + Commitlint', 'Manually select features']
+      choices: ['Default: Eslint + Prettier + Commitlint', 'Manually select features']
     }
   ])
   console.log(answer)
