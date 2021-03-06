@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.ts --cache --fix"
   },
   "bin": {
-    "linter": "bin/index.js"
+    "linter-init": "bin/index.js"
   },
   "repository": {
     "type": "git",
