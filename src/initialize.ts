@@ -7,8 +7,8 @@ const initialize = async (config?: string): Promise<void> => {
       name: 'default',
       message: 'Please select a linter configuration?',
       choices: [
-        { hint: 'Eslint + Prettier + Commitlint', message: 'Default', name: 'Default' },
-        { hint: 'Manually select features', message: 'Customize', name: 'Customize' }
+        { message: 'Default: Eslint + Prettier + Commitlint', name: 'Default' },
+        { message: 'Custom: Manual selection of linter', name: 'Custom' }
       ]
     },
     {
@@ -16,8 +16,8 @@ const initialize = async (config?: string): Promise<void> => {
       name: 'module',
       message: 'What type of modules does your project use?',
       choices: [
-        { hint: 'import/export', message: 'ESM', name: 'ESM' },
-        { hint: 'require/exports', message: 'CommonJS', name: 'CommonJS' }
+        { message: 'ESM: import/export', name: 'ESM' },
+        { message: 'CommonJS: require/exports', name: 'CommonJS' }
       ]
     },
     {
@@ -31,14 +31,31 @@ const initialize = async (config?: string): Promise<void> => {
       type: 'select',
       name: 'framework',
       message: 'Which framework does your project use?',
-      choices: ['Vue', 'React', 'Lit-element', 'Vanilla']
+      choices: ['Vue', 'React', 'Svelte', 'Lit-element', 'Vanilla']
     },
     {
       type: 'multiselect',
       name: 'linter',
       message: 'Select the linter you want to use',
       hint: 'Press <space> to select, <a> to toggle all, <i> to invert selection',
+      initial: 0,
       choices: ['Eslint', 'Prettier', 'Stylelint', 'Commitlint']
+    },
+    {
+      type: 'select',
+      name: 'style',
+      message: 'Which style guide do you want to follow?',
+      choices: [
+        { message: 'Airbnb: https://github.com/airbnb/javascript', name: 'Airbnb' },
+        {
+          message: 'Standard: https://github.com/standard/standard',
+          name: 'Standard'
+        },
+        {
+          message: 'Google: https://github.com/google/eslint-config-google',
+          name: 'Google'
+        }
+      ]
     }
   ])
   console.log(answer)
