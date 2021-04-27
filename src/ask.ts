@@ -6,6 +6,7 @@ const initialize = async (config?: string): Promise<void> => {
       type: 'select',
       name: 'default',
       message: 'Please select a linter configuration?',
+      initial: 1,
       choices: [
         { message: 'Default: Eslint + Prettier + Commitlint', name: 'Default' },
         { message: 'Custom: Manual selection of linter', name: 'Custom' }
@@ -15,15 +16,24 @@ const initialize = async (config?: string): Promise<void> => {
       type: 'select',
       name: 'module',
       message: 'What type of modules does your project use?',
+      initial: 0,
       choices: [
         { message: 'ESM: import/export', name: 'ESM' },
         { message: 'CommonJS: require/exports', name: 'CommonJS' }
-      ]
+      ],
+      skip(e) {
+        console.log(this)
+        console.log(e)
+
+        return false
+      }
     },
     {
+      // @ts-expect-error: https://github.com/enquirer/enquirer/pull/323
       type: 'toggle',
       name: 'typescript',
       message: 'Does your project use TypeScript?',
+      initial: false,
       enabled: 'Yes',
       disabled: 'No'
     },
@@ -31,6 +41,7 @@ const initialize = async (config?: string): Promise<void> => {
       type: 'select',
       name: 'framework',
       message: 'Which framework does your project use?',
+      initial: 4,
       choices: ['Vue', 'React', 'Svelte', 'Lit-element', 'Vanilla']
     },
     {
@@ -38,13 +49,14 @@ const initialize = async (config?: string): Promise<void> => {
       name: 'linter',
       message: 'Select the linter you want to use',
       hint: 'Press <space> to select, <a> to toggle all, <i> to invert selection',
-      initial: 0,
+      initial: 1,
       choices: ['Eslint', 'Prettier', 'Stylelint', 'Commitlint']
     },
     {
       type: 'select',
       name: 'style',
       message: 'Which style guide do you want to follow?',
+      initial: 1,
       choices: [
         { message: 'Airbnb: https://github.com/airbnb/javascript', name: 'Airbnb' },
         {

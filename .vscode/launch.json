@@ -1,14 +1,14 @@
 {
-  "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
-      "name": "Debug",
+      "name": "Launch via NPM",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "debug"],
       "port": 9229,
-      "skipFiles": ["<node_internals>/**"]
+      "skipFiles": ["<node_internals>/**"],
+      "console": "externalTerminal"
     }
   ]
 }
